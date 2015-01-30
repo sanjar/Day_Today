@@ -1,0 +1,27 @@
+<project>
+
+    <target name="clean">
+        <delete dir="build"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir="build/classes"/>
+        <javac srcdir="src" destdir="build/classes">
+        	<compilerarg value="-Djava.endorsed.dirs=C:\software\jdk1.6.0_21\jdk1.6.0_21\jre\lib\endorsed1"/>
+        </javac>
+    </target>
+
+    <target name="jar">
+        <mkdir dir="build/jar"/>
+        <jar destfile="build/jar/TestEndorsed.jar" basedir="build/classes">
+            <manifest>
+                <attribute name="Main-Class" value="com.test.TestEndorsed"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="run">
+        <java jar="build/jar/TestEndorsed.jar" fork="true"/>
+    </target>
+
+</project>

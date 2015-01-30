@@ -13,7 +13,6 @@ import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 
 import com.test.model.Address;
-import com.test.model.ContactInfo;
 import com.test.model.Customer;
 import com.test.model.PhoneNumber;
 
