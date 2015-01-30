@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="address" type="address"/>
+
+  <xs:element name="customer" type="customer"/>
+
+  <xs:element name="phoneNumber" type="phoneNumber"/>
+
+  <xs:complexType name="customer">
+    <xs:choice>
+      <xs:element ref="address"/>
+      <xs:element ref="phoneNumber"/>
+    </xs:choice>
+  </xs:complexType>
+
+  <xs:complexType name="address">
+    <xs:complexContent>
+      <xs:extension base="contactInfo">
+        <xs:sequence>
+          <xs:element name="street" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="contactInfo" abstract="true">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="phoneNumber">
+    <xs:complexContent>
+      <xs:extension base="contactInfo">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+</xs:schema>
+
