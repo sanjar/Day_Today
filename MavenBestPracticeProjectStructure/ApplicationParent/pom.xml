@@ -1,0 +1,40 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.integration</groupId>
+  <artifactId>ApplicationParent</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>Application Parent</name>
+  <modules>
+  	<module>../ApplicationEAR</module>
+  	<module>../ApplicationEJB</module>
+  	<module>../ApplicationJAR</module>
+  	<module>../ApplicationWAR</module>
+  </modules>
+  <build>
+  	<pluginManagement>
+  		<plugins>
+  			<plugin>
+  					<groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-ejb-plugin</artifactId>
+                    <version>2.3</version>
+                    <configuration>
+                        <clientExcludes>
+                            <clientExclude>**/*Service.class</clientExclude>
+                        </clientExcludes>
+                    </configuration>
+                </plugin>
+  			<plugin>
+                    <artifactId>maven-ear-plugin</artifactId>
+                    <version>2.10</version>
+                    <configuration>
+                        <fileNameMapping>no-version</fileNameMapping>
+                        <version>7</version>
+                        <defaultLibBundleDir>lib</defaultLibBundleDir>
+                        <libraryDirectoryMode>NONE</libraryDirectoryMode>
+                    </configuration>
+                </plugin>
+  		</plugins>
+  	</pluginManagement>
+  </build>
+</project>
