@@ -16,7 +16,7 @@ public class Deadlock {
             synchronized(bower) {
             	 bower.bowBack(this);
 			}
-           
+            
         }
         public  void bowBack(Friend bower) {
             System.out.format("%s: %s"
