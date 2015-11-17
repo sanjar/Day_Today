@@ -6,9 +6,9 @@ public class Product {
 
 	private String productDescription;
 
-	private String productPrice;
+	private double productPrice;
 
-	private String productQuantity;
+	private int productQuantity;
 
 	public String getProductCode() {
 		return productCode;
@@ -26,19 +26,19 @@ public class Product {
 		this.productDescription = productDescription;
 	}
 
-	public String getProductPrice() {
+	public double getProductPrice() {
 		return productPrice;
 	}
 
-	public void setProductPrice(String productPrice) {
+	public void setProductPrice(double productPrice) {
 		this.productPrice = productPrice;
 	}
 
-	public String getProductQuantity() {
+	public int getProductQuantity() {
 		return productQuantity;
 	}
 
-	public void setProductQuantity(String productQuantity) {
+	public void setProductQuantity(int productQuantity) {
 		this.productQuantity = productQuantity;
 	}
 

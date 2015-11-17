@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -20,11 +19,15 @@ public class Product implements Serializable {
 	 */
 	private static final long serialVersionUID = 3370192605547038070L;
 
-	@Id
-	@GeneratedValue
-	@Column(name = "id")
-	private int id;
+	/*
+	 * @Id
+	 * 
+	 * @GeneratedValue
+	 * 
+	 * @Column(name = "id") private int id;
+	 */
 
+	@Id
 	@Column(name = "product_code")
 	private String productCode;
 
@@ -32,18 +35,16 @@ public class Product implements Serializable {
 	private String productDescription;
 
 	@Column(name = "product_price")
-	private String productPrice;
+	private double productPrice;
 
 	@Column(name = "product_quantity")
-	private String productQuantity;
+	private int productQuantity;
 
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
+	/*
+	 * public int getId() { return id; }
+	 * 
+	 * public void setId(int id) { this.id = id; }
+	 */
 
 	public String getProductCode() {
 		return productCode;
@@ -61,19 +62,19 @@ public class Product implements Serializable {
 		this.productDescription = productDescription;
 	}
 
-	public String getProductPrice() {
+	public double getProductPrice() {
 		return productPrice;
 	}
 
-	public void setProductPrice(String productPrice) {
+	public void setProductPrice(double productPrice) {
 		this.productPrice = productPrice;
 	}
 
-	public String getProductQuantity() {
+	public int getProductQuantity() {
 		return productQuantity;
 	}
 
-	public void setProductQuantity(String productQuantity) {
+	public void setProductQuantity(int productQuantity) {
 		this.productQuantity = productQuantity;
 	}
 

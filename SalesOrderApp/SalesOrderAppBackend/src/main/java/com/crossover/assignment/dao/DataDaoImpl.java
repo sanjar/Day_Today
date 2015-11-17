@@ -26,9 +26,9 @@ public class DataDaoImpl implements DataDao {
 		return false;
 	}
 
-	public Object getEntityById(Class clazz, long id) throws Exception {
+	public Object getEntityById(Class clazz, String id) throws Exception {
 		session = sessionFactory.openSession();
-		Object entity = session.load(clazz, new Long(id));
+		Object entity = session.get(clazz, id);
 		tx = session.getTransaction();
 		session.beginTransaction();
 		tx.commit();
@@ -45,7 +45,7 @@ public class DataDaoImpl implements DataDao {
 		return entityList;
 	}
 
-	public boolean deleteEntity(Class clazz, long id) throws Exception {
+	public boolean deleteEntity(Class clazz, String id) throws Exception {
 		session = sessionFactory.openSession();
 		Object o = session.load(clazz, id);
 		tx = session.getTransaction();
