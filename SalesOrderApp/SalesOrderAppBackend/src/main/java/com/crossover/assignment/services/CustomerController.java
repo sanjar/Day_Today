@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -51,4 +52,28 @@ public class CustomerController {
 		return (List<Customer>) (Object) customerList;
 	}
 
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	public @ResponseBody Customer getEmployee(@PathVariable("id") String id) {
+		Customer customer = null;
+		try {
+			customer = (Customer) dataServices
+					.getEntityById(Customer.class, id);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return customer;
+	}
+
+	@RequestMapping(value = "delete/{id}", method = RequestMethod.GET)
+	public @ResponseBody Status deleteCustomer(@PathVariable("id") String id) {
+
+		try {
+			dataServices.deleteEntity(Customer.class, id);
+			return new Status(1, "Customer deleted Successfully !");
+		} catch (Exception e) {
+			return new Status(0, e.toString());
+		}
+
+	}
 }

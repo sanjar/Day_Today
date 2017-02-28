@@ -34,7 +34,10 @@ public class SalesOrder implements Serializable {
 	private Customer customer;
 
 	@Column(name = "total_price")
-	private String totalPrice;
+	private double totalPrice;
+
+	@Column(name = "products")
+	private String products;
 
 	public long getOrderNumber() {
 		return orderNumber;
@@ -52,12 +55,20 @@ public class SalesOrder implements Serializable {
 		this.customer = customer;
 	}
 
-	public String getTotalPrice() {
+	public double getTotalPrice() {
 		return totalPrice;
 	}
 
-	public void setTotalPrice(String totalPrice) {
+	public void setTotalPrice(double totalPrice) {
 		this.totalPrice = totalPrice;
+	}
+
+	public String getProducts() {
+		return products;
+	}
+
+	public void setProducts(String products) {
+		this.products = products;
 	}
 
 }

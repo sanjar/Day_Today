@@ -19,31 +19,28 @@ public class CustomerDataModel extends ListDataModel {
 
 	@Override
 	public String[][] convertRecordsListToTableModel(List<Object> list) {
-		// TODO by the candidate
 		/*
 		 * This method use list returned by Services.listCurrentRecords and
 		 * should convert it to array of rows each row is another array of
 		 * columns of the row
 		 */
-		String[][] sampleData = new String[][] {
-				{ "01", "Customer 1", "+201011121314", "23.4" },
-				{ "02", "Customer 2", "+201112131415", "1.4" } };
 
-		List<Object> customerList = Services
-				.listCurrentRecords(Services.TYPE_CUSTOMER);
-
-		String[][] customerArrayData = getCustomerArrayData(customerList);
+		String[][] customerArrayData = getCustomerArrayData(list);
 		return customerArrayData;
 	}
 
 	private String[][] getCustomerArrayData(List<Object> customerList) {
-		String[][] customerArrayData = new String[customerList.size()][4];
+		String[][] customerArrayData = new String[customerList.size()][];
 		int i = 0;
 		for (Object obj : customerList) {
 			Customer customer = (Customer) obj;
-			customerArrayData[i] = new String[] { customer.getCustomerCode(),
-					customer.getCustomerName(), customer.getCustomerPhone(),
-					customer.getCustomerCurrentCredit() };
+			customerArrayData[i] = new String[] {
+					String.valueOf(customer.getCustomerCode()),
+					customer.getCustomerName(),
+					customer.getCustomerPhone1() + ","
+							+ customer.getCustomerPhone2(),
+					String.valueOf(customer.getCustomerCurrentCredit()) };
+			i++;
 		}
 		return customerArrayData;
 	}
