@@ -1,0 +1,39 @@
+<html>
+<head>
+	<script type="text/javascript">
+			var map = new Object();
+			map[1] = "https://en.wikipedia.org/wiki/India";
+			map[2] = "https://en.wikipedia.org/wiki/Bihar";
+			map[3] = "https://en.wikipedia.org/wiki/Gaya,_India";
+			var count = 1;
+			function resizeIframe(obj) {
+				//alert("yes");
+   			 
+  			}
+  			
+  			
+  			var win
+			setInterval(function(){
+			if(count>3){
+				count =1;
+			}
+				if(win != undefined){
+					console.log("in");
+					win.close();
+				}
+				
+				win = window.open(map[count], '_blank');
+				win.focus();
+				//document.getElementById("jiraframe").style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+   			    //document.getElementById("jiraframe").style.width = obj.contentWindow.document.body.scrollWidth + 'px';
+   				
+   				count++;
+			}, 15000);
+	</script>
+</head>
+
+<body>
+<!-- Iframe sometimes doesnot work due to cross site security policy -->
+<!--<iframe id="jiraframe"	 frameborder="0" style="width:100%; height:100%;"></iframe>-->
+</body>
+</html>
